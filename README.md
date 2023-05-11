@@ -2,7 +2,7 @@
 
 [![tests](https://github.com/brokeyourbike/macadmin/actions/workflows/tests.yml/badge.svg)](https://github.com/brokeyourbike/macadmin/actions/workflows/tests.yml)
 
-Scripts of possible interest to macOS admins, written in Golang
+Scripts of possible interest to macOS admins, written in [Golang](https://go.dev/)
 
 ## Thanks
 
