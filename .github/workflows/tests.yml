@@ -20,7 +20,7 @@ jobs:
     - run: go build -o macadmin
     - run: go test -race -covermode=atomic -shuffle=on -coverprofile=coverage.out
 
-    - uses: paambaati/codeclimate-action@v3.0.0
+    - uses: paambaati/codeclimate-action@v4
       continue-on-error: true
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_TOKEN }}
