@@ -1,7 +1,9 @@
 package cmd
 
 import (
-	"github.com/brokeyourbike/macadmin.go/helpers"
+	"fmt"
+
+	"github.com/brokeyourbike/macadmin/helpers"
 	"github.com/spf13/cobra"
 )
 
@@ -11,12 +13,13 @@ var getCmd = &cobra.Command{
 	Use:   "get",
 	Short: "Parses Apple's feed of macOS IPSWs and lets you download one.",
 	Long:  `Parses Apple's feed of macOS IPSWs and lets you download one.`,
-	Run: func(cmd *cobra.Command, args []string) {
-		ipfs, err := helpers.FetchIpswData(feedUrl)
-
+	RunE: func(cmd *cobra.Command, args []string) error {
+		_, err := helpers.FetchIpswData(feedUrl)
 		if err != nil {
-			panic(err)
+			return fmt.Errorf("error fetching IPSW data: %s", err)
 		}
+
+		return nil
 	},
 }
 

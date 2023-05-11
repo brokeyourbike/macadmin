@@ -1,6 +1,6 @@
 package main
 
-import "github.com/brokeyourbike/macadmin.go/cmd"
+import "github.com/brokeyourbike/macadmin/cmd"
 
 func main() {
 	cmd.Execute()

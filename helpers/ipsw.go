@@ -15,10 +15,10 @@ type Ipsw struct {
 	ProductTypes map[string]ProductType `plist:"MobileDeviceProductTypes"`
 }
 
-// type ProductType struct {
-// 	Name string
-// 	Id   string
-// }
+type ProductType struct {
+	Name string
+	Id   string
+}
 
 // type ProductTypes map[string]ProductType
 
