@@ -13,21 +13,14 @@ jobs:
     timeout-minutes: 5
 
     steps:
-    - uses: actions/checkout@v2
-
-    - name: Set up Go
-      uses: actions/setup-go@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-go@v3
       with:
         go-version: 1.17
+    - run: go build -o macadmin
+    - run: go test -race -covermode=atomic -shuffle=on -coverprofile=coverage.out
 
-    - name: Build
-      run: go build -o macadmin
-
-    - name: Test
-      run: go test -race -covermode=atomic -shuffle=on -coverprofile=coverage.out
-
-    - name: Upload coverage to codeclimate
-      uses: paambaati/codeclimate-action@v3.0.0
+    - uses: paambaati/codeclimate-action@v3.0.0
       continue-on-error: true
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_TOKEN }}
