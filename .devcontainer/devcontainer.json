@@ -1,7 +1,15 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/go
 {
-	"name": "macadmin",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/go:0-1.19"
+    "name": "macadmin",
+    // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+    "image": "mcr.microsoft.com/devcontainers/go:0-1.19",
+
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    "features": {
+        "ghcr.io/brokeyourbike/devcontainer-features/reflex:0": {},
+        "ghcr.io/brokeyourbike/devcontainer-features/staticcheck:0": {
+            "version": "2023.1"
+        }
+    }
 }
