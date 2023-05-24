@@ -14,9 +14,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - uses: actions/setup-go@v3
+    - uses: actions/setup-go@v4
       with:
-        go-version: 1.19
+        go-version-file: "go.mod"
     - run: go build -o macadmin
     - run: go test -race -covermode=atomic -shuffle=on -coverprofile=coverage.out
 
@@ -25,6 +25,5 @@ jobs:
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_TOKEN }}
       with:
-        coverageCommand: ''
         prefix: 'github.com/brokeyourbike/macadmin'
         coverageLocations: ./coverage.out:gocov
